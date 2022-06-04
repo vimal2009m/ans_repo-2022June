@@ -1,0 +1,12 @@
+---
+- name: This is web server install
+  yum:
+    name: httpd
+    state: present
+  notify:
+    - restart_webserver
+- name: "Copy Index"
+  copy:
+    src: index.html
+    dest: /usr/share/httpd/noindex/index.html
+
